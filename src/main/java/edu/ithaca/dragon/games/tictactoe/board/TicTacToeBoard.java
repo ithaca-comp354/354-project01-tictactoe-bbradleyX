@@ -10,6 +10,7 @@ public interface TicTacToeBoard {
 
     //@returns true if any player can choose this square, false otherwise
     public boolean isSquareOpen(Pair<Integer, Integer> square);
+
     //@returns true if the given symbol (X or O) has currently won on this board
     public boolean checkForWin(char symbol);    
     
@@ -19,6 +20,10 @@ public interface TicTacToeBoard {
     
     //@returns a string representing the entire board for display, including coordinates
     public String displayString();
+
+    //@returns the char found at the given square
+    public char checksquare(Pair<Integer, Integer> square);
+
     //@returns a string of 9 characters representing each board space in row-major order
     public String buildSquaresString();
     

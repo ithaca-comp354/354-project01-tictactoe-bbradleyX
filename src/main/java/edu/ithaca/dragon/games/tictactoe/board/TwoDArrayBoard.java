@@ -36,6 +36,11 @@ public class TwoDArrayBoard implements TicTacToeBoard{
     }
 
     @Override
+    public char checksquare(Pair<Integer, Integer> square) {
+        return squares[square.getValue0()][square.getValue1()];
+    }
+
+    @Override
     public boolean isSquareOpen(Pair<Integer, Integer> square) {
 		return squares[square.getValue0()][square.getValue1()] == ' ';
 	}
@@ -137,5 +142,6 @@ public class TwoDArrayBoard implements TicTacToeBoard{
         }
         return false;
     }
+
 
 }
