@@ -21,7 +21,8 @@ public class RuleBasedAgentBradley implements TicTacToePlayer {
             /*  Copy Board, use checkSquare method to determine location (ex. Pair <0,0>), if the returned char is agent's then
             use is SquareOpen to see if the spot is available then call setSquare method for the winning coordinate*/
 
-            while (!curCopy.checkForWin(yourSymbol)){
+            for (int y=0; y<3; y++){
+                for(int x=0; x<3;x++){
                 //Top of row winning move -- x=0
                 if(curCopy.checkSquare(new Pair<>(0,1)) == yourSymbol){
                     if(curCopy.checkSquare(new Pair<>(0,2)) == yourSymbol){
@@ -450,8 +451,8 @@ public class RuleBasedAgentBradley implements TicTacToePlayer {
                         return new Pair<>(1,1);
                 } */
             }
+        }
         throw new IllegalArgumentException("Board with no moves given to player:\n" + curBoard.displayString());
         }
-        
-}
+    }
 
