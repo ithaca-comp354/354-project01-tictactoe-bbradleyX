@@ -6,8 +6,8 @@ import edu.ithaca.dragon.games.tictactoe.player.RuleBasedAgentBradley;
 
 public class TicTacToeMain {
     public static void main (String[] args){
-        new TicTacToeGame( new HumanPlayer(), new BrainDeadPlayer()).play();
-        //new TicTacToeGame( new HumanPlayer(), new RuleBasedAgentBradley()).play();
+        //new TicTacToeGame( new HumanPlayer(), new BrainDeadPlayer()).play();
+        new TicTacToeGame( new HumanPlayer(), new RuleBasedAgentBradley()).play();
     }
     
 }

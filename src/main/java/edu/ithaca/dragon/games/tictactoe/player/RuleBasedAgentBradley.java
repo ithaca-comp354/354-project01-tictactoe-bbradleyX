@@ -21,437 +21,436 @@ public class RuleBasedAgentBradley implements TicTacToePlayer {
             /*  Copy Board, use checkSquare method to determine location (ex. Pair <0,0>), if the returned char is agent's then
             use is SquareOpen to see if the spot is available then call setSquare method for the winning coordinate*/
 
-            //Top of row winning move -- x=0
-            if(curCopy.checkSquare(new Pair<>(0,1)) == yourSymbol){
-                if(curCopy.checkSquare(new Pair<>(0,2)) == yourSymbol){
-                    if(curCopy.isSquareOpen(new Pair<>(0,0))){
-                        return new Pair<>(0,0);
-                    }
-                }
-            }
-            //Middle row winning move  -- x=0
-            else if(curCopy.checkSquare(new Pair<>(0,0)) == yourSymbol){
-                if(curCopy.checkSquare(new Pair<>(0,2)) == yourSymbol){
-                    if(curCopy.isSquareOpen(new Pair<>(0,1))){
-                        return new Pair<>(0,1);
-                    }
-                }
-            }
-            //Bottom of row winning move  -- x=0
-            else if(curCopy.checkSquare(new Pair<>(0,0)) == yourSymbol){
+            while (!curCopy.checkForWin(yourSymbol)){
+                //Top of row winning move -- x=0
                 if(curCopy.checkSquare(new Pair<>(0,1)) == yourSymbol){
-                    if(curCopy.isSquareOpen(new Pair<>(1,2))){
-                        return new Pair<>(1,2);
-                    }
-                }
-            }
-
-            //Top of row winning move  -- x=1
-            else if(curCopy.checkSquare(new Pair<>(1,1)) == yourSymbol){
-                if(curCopy.checkSquare(new Pair<>(1,2)) == yourSymbol){
-                    if(curCopy.isSquareOpen(new Pair<>(1,0))){
-                        return new Pair<>(1,0);
-                    }
-                }
-            }
-            //Middle row winning move  -- x=1
-            else if(curCopy.checkSquare(new Pair<>(1,0)) == yourSymbol){
-                if(curCopy.checkSquare(new Pair<>(1,2)) == yourSymbol){
-                    if(curCopy.isSquareOpen(new Pair<>(1,1))){
-                        return new Pair<>(1,1);
-                    }
-                }
-            }
-            //Bottom of row winning move  -- x=1
-            else if(curCopy.checkSquare(new Pair<>(1,0)) == yourSymbol){
-                if(curCopy.checkSquare(new Pair<>(1,1)) == yourSymbol){
-                    if(curCopy.isSquareOpen(new Pair<>(1,2))){
-                        return new Pair<>(1,2);
-                    }
-                }
-            }
-
-            
-            //Top of row winning move  -- x=2
-            else if(curCopy.checkSquare(new Pair<>(2,1)) == yourSymbol){
-                if(curCopy.checkSquare(new Pair<>(2,2)) == yourSymbol){
-                    if(curCopy.isSquareOpen(new Pair<>(2,0))){
-                        return new Pair<>(2,0);
-                    }
-                }
-            }
-            //Middle row winning move  -- x=2
-            else if(curCopy.checkSquare(new Pair<>(2,0)) == yourSymbol){
-                if(curCopy.checkSquare(new Pair<>(2,2)) == yourSymbol){
-                    if(curCopy.isSquareOpen(new Pair<>(2,1))){
-                        return new Pair<>(2,1);
-                    }
-                }
-            }
-            //Bottom of row winning move  -- x=2
-            else if(curCopy.checkSquare(new Pair<>(2,0)) == yourSymbol){
-                if(curCopy.checkSquare(new Pair<>(2,1)) == yourSymbol){
-                    if(curCopy.isSquareOpen(new Pair<>(2,2))){
-                        return new Pair<>(2,2);
-                    }
-                }
-            }
-
-            //Rule 2: If the opponent has a winning move, block it.
-            /* Copy Board, use checkSquare method to determine location (ex. Pair <0,0>), if the returned char is not the agent's then 
-            use is SquareOpen to see if the spot is available then call setSquare method for the proper blocking coordinate*/
-            
-            //Top of row blocking move -- x=0
-            else if(curCopy.checkSquare(new Pair<>(0,1)) != yourSymbol){
-                if(curCopy.checkSquare(new Pair<>(0,2)) != yourSymbol){
-                    if(curCopy.isSquareOpen(new Pair<>(0,0))){
-                        return new Pair<>(0,0);
-                    }
-                }
-            }
-            //Middle row blocking move  -- x=0
-            else if(curCopy.checkSquare(new Pair<>(0,0)) != yourSymbol){
-                if(curCopy.checkSquare(new Pair<>(0,2)) != yourSymbol){
-                    if(curCopy.isSquareOpen(new Pair<>(0,1))){
-                        return new Pair<>(0,1);
-                    }
-                }
-            }
-            //Bottom of row blocking move  -- x=0
-            else if(curCopy.checkSquare(new Pair<>(0,0)) != yourSymbol){
-                if(curCopy.checkSquare(new Pair<>(0,1)) != yourSymbol){
-                    if(curCopy.isSquareOpen(new Pair<>(0,2))){
-                        return new Pair<>(0,2);
-                    }
-                }
-            }
-            
-            //Top of row blocking move -- x=1
-            else if(curCopy.checkSquare(new Pair<>(1,1)) != yourSymbol){
-                if(curCopy.checkSquare(new Pair<>(1,2)) != yourSymbol){
-                    if(curCopy.isSquareOpen(new Pair<>(1,0))){
-                        return new Pair<>(1,0);
-                    }
-                }
-            }
-            //Middle row blocking move  -- x=1
-            else if(curCopy.checkSquare(new Pair<>(1,0)) != yourSymbol){
-                if(curCopy.checkSquare(new Pair<>(1,2)) != yourSymbol){
-                    if(curCopy.isSquareOpen(new Pair<>(1,1))){
-                        return new Pair<>(1,1);
-                    }
-                }
-            }
-            //Bottom of row blocking move  -- x=1
-            else if(curCopy.checkSquare(new Pair<>(1,0)) != yourSymbol){
-                if(curCopy.checkSquare(new Pair<>(1,1)) != yourSymbol){
-                    if(curCopy.isSquareOpen(new Pair<>(1,1))){
-                        return new Pair<>(1,2);
-                    }
-                }
-            }
-            
-            //Top of row blocking move -- x=2
-            else if(curCopy.checkSquare(new Pair<>(2,1)) != yourSymbol){
-                if(curCopy.checkSquare(new Pair<>(2,2)) != yourSymbol){
-                    if(curCopy.isSquareOpen(new Pair<>(2,0))){
-                        return new Pair<>(2,0);
-                    }
-                }
-            }
-            //Middle row blocking move  -- x=2
-            else if(curCopy.checkSquare(new Pair<>(2,0)) != yourSymbol){
-                if(curCopy.checkSquare(new Pair<>(2,2)) != yourSymbol){
-                    if(curCopy.isSquareOpen(new Pair<>(2,1))){
-                        return new Pair<>(2,1);
-                    }
-                }
-            }
-            //Bottom of row blocking move  -- x=2
-            else if(curCopy.checkSquare(new Pair<>(2,0)) != yourSymbol){
-                if(curCopy.checkSquare(new Pair<>(2,2)) != yourSymbol){
-                    if(curCopy.isSquareOpen(new Pair<>(2,2))){
-                        return new Pair<>(2,2);
-                    }
-                }
-            }
-
-            //Rule 3: If I can create a fork (two winning ways) after this move, do it.
-            /* Copy Board, use checkSquare method to determine location (ex. Pair <0,0>), if the returned char is not the agent's then 
-            use is SquareOpen to see if the spot is available then call setSquare method for a method, if possible, with 2 way of winning*/
-            
-            //Top of row 2-way winning move -- (0,0)
-            else if(curCopy.checkSquare(new Pair<>(0,1)) == yourSymbol){
-                if(curCopy.checkSquare(new Pair<>(0,2)) == yourSymbol){
-                    if(curCopy.checkSquare(new Pair<>(1,0)) == yourSymbol){
-                        if(curCopy.checkSquare(new Pair<>(2,0)) == yourSymbol){
-                            if(curCopy.isSquareOpen(new Pair<>(0,0))){
-                                return new Pair<>(0,0);
-                            }
+                    if(curCopy.checkSquare(new Pair<>(0,2)) == yourSymbol){
+                        if(curCopy.isSquareOpen(new Pair<>(0,0))){
+                            return new Pair<>(0,0);
                         }
-                        
                     }
                 }
-            }
-
-            //Top of row 2-way winning move -- (0,1)
-            else if(curCopy.checkSquare(new Pair<>(0,0)) == yourSymbol){
-                if(curCopy.checkSquare(new Pair<>(0,2)) == yourSymbol){
-                    if(curCopy.checkSquare(new Pair<>(1,1)) == yourSymbol){
-                        if(curCopy.checkSquare(new Pair<>(2,1)) == yourSymbol){
-                            if(curCopy.isSquareOpen(new Pair<>(0,1))){
-                                return new Pair<>(0,1);
-                            }
+                //Middle row winning move  -- x=0
+                if(curCopy.checkSquare(new Pair<>(0,0)) == yourSymbol){
+                    if(curCopy.checkSquare(new Pair<>(0,2)) == yourSymbol){
+                        if(curCopy.isSquareOpen(new Pair<>(0,1))){
+                            return new Pair<>(0,1);
                         }
-                        
                     }
                 }
-            }
-            
-            //Top of row 2-way winning move -- (0,2)
-            else if(curCopy.checkSquare(new Pair<>(0,0)) == yourSymbol){
-                if(curCopy.checkSquare(new Pair<>(0,1)) == yourSymbol){
-                    if(curCopy.checkSquare(new Pair<>(1,2)) == yourSymbol){
-                        if(curCopy.checkSquare(new Pair<>(2,2)) == yourSymbol){
-                            if(curCopy.isSquareOpen(new Pair<>(0,2))){
-                                return new Pair<>(0,2);
-                            }
-                        }
-                        
-                    }
-                }
-            }
-
-
-            //Top of row 2-way winning move -- (1,0)
-            else if(curCopy.checkSquare(new Pair<>(0,0)) == yourSymbol){
-                if(curCopy.checkSquare(new Pair<>(2,0)) == yourSymbol){
-                    if(curCopy.checkSquare(new Pair<>(1,1)) == yourSymbol){
-                        if(curCopy.checkSquare(new Pair<>(1,2)) == yourSymbol){
-                            if(curCopy.isSquareOpen(new Pair<>(1,0))){
-                                return new Pair<>(1,0);
-                            }
-                        }
-                        
-                    }
-                }
-            }
-
-            //Top of row 2-way winning move -- (1,1)
-            else if(curCopy.checkSquare(new Pair<>(0,1)) == yourSymbol){
-                if(curCopy.checkSquare(new Pair<>(2,1)) == yourSymbol){
-                    if(curCopy.checkSquare(new Pair<>(1,0)) == yourSymbol){
-                        if(curCopy.checkSquare(new Pair<>(1,2)) == yourSymbol){
-                            if(curCopy.isSquareOpen(new Pair<>(1,1))){
-                                return new Pair<>(1,1);
-                            }
-                        }
-                        
-                    }
-                }
-            }
-
-            //Top of row 2-way winning move -- (1,2)
-            else if(curCopy.checkSquare(new Pair<>(0,2)) == yourSymbol){
-                if(curCopy.checkSquare(new Pair<>(2,2)) == yourSymbol){
-                    if(curCopy.checkSquare(new Pair<>(1,0)) == yourSymbol){
-                        if(curCopy.checkSquare(new Pair<>(1,1)) == yourSymbol){
-                            if(curCopy.isSquareOpen(new Pair<>(1,2))){
-                                return new Pair<>(1,2);
-                            }
-                        }
-                        
-                    }
-                }
-            }
-
-
-            //Top of row 2-way winning move -- (2,0)
-            else if(curCopy.checkSquare(new Pair<>(0,0)) == yourSymbol){
-                if(curCopy.checkSquare(new Pair<>(1,0)) == yourSymbol){
-                    if(curCopy.checkSquare(new Pair<>(2,1)) == yourSymbol){
-                        if(curCopy.checkSquare(new Pair<>(2,2)) == yourSymbol){
-                            if(curCopy.isSquareOpen(new Pair<>(2,0))){
-                                return new Pair<>(2,0);
-                            }
-                        }
-                        
-                    }
-                }
-            }
-            //Top of row 2-way winning move -- (2,1)
-            else if(curCopy.checkSquare(new Pair<>(2,0)) == yourSymbol){
-                if(curCopy.checkSquare(new Pair<>(2,2)) == yourSymbol){
+                //Bottom of row winning move  -- x=0
+                if(curCopy.checkSquare(new Pair<>(0,0)) == yourSymbol){
                     if(curCopy.checkSquare(new Pair<>(0,1)) == yourSymbol){
-                        if(curCopy.checkSquare(new Pair<>(1,1)) == yourSymbol){
-                            if(curCopy.isSquareOpen(new Pair<>(2,1))){
-                                return new Pair<>(2,1);
-                            }
+                        if(curCopy.isSquareOpen(new Pair<>(1,2))){
+                            return new Pair<>(1,2);
                         }
-                        
                     }
                 }
-            }
 
-            //Top of row 2-way winning move -- (2,2)
-            else if(curCopy.checkSquare(new Pair<>(0,2)) == yourSymbol){
-                if(curCopy.checkSquare(new Pair<>(1,2)) == yourSymbol){
-                    if(curCopy.checkSquare(new Pair<>(2,0)) == yourSymbol){
-                        if(curCopy.checkSquare(new Pair<>(2,1)) == yourSymbol){
-                            if(curCopy.isSquareOpen(new Pair<>(2,2))){
-                                return new Pair<>(2,2);
-                            }
+                //Top of row winning move  -- x=1
+                if(curCopy.checkSquare(new Pair<>(1,1)) == yourSymbol){
+                    if(curCopy.checkSquare(new Pair<>(1,2)) == yourSymbol){
+                        if(curCopy.isSquareOpen(new Pair<>(1,0))){
+                            return new Pair<>(1,0);
                         }
-                        
                     }
                 }
-            }
-
-            //Rule 4: Do not let the opponent creating a fork after my move. (Opponent may block your winning move and create a fork.)
-            /* Copy Board, use checkSquare method to determine location (ex. Pair <0,0>), if the returned char is not the agent's then 
-            use is SquareOpen to see if the spot is available then call setSquare method for a coordinate that doesn't allow the opponent to fork*/
-
-             //Top of row 2-way winning move -- (0,0)
-             else if(curCopy.checkSquare(new Pair<>(0,1)) != yourSymbol){
-                if(curCopy.checkSquare(new Pair<>(0,2)) != yourSymbol){
-                    if(curCopy.checkSquare(new Pair<>(1,0)) != yourSymbol){
-                        if(curCopy.checkSquare(new Pair<>(2,0)) != yourSymbol){
-                            if(curCopy.isSquareOpen(new Pair<>(0,0))){
-                                return new Pair<>(0,0);
-                            }
+                //Middle row winning move  -- x=1
+                if(curCopy.checkSquare(new Pair<>(1,0)) == yourSymbol){
+                    if(curCopy.checkSquare(new Pair<>(1,2)) == yourSymbol){
+                        if(curCopy.isSquareOpen(new Pair<>(1,1))){
+                            return new Pair<>(1,1);
                         }
-                        
                     }
                 }
-            }
-
-            //Top of row 2-way winning move -- (0,1)
-            else if(curCopy.checkSquare(new Pair<>(0,0)) != yourSymbol){
-                if(curCopy.checkSquare(new Pair<>(0,2)) != yourSymbol){
-                    if(curCopy.checkSquare(new Pair<>(1,1)) != yourSymbol){
-                        if(curCopy.checkSquare(new Pair<>(2,1)) != yourSymbol){
-                            if(curCopy.isSquareOpen(new Pair<>(0,1))){
-                                return new Pair<>(0,1);
-                            }
+                //Bottom of row winning move  -- x=1
+                if(curCopy.checkSquare(new Pair<>(1,0)) == yourSymbol){
+                    if(curCopy.checkSquare(new Pair<>(1,1)) == yourSymbol){
+                        if(curCopy.isSquareOpen(new Pair<>(1,2))){
+                            return new Pair<>(1,2);
                         }
-                        
                     }
                 }
-            }
-            
-            //Top of row 2-way winning move -- (0,2)
-            else if(curCopy.checkSquare(new Pair<>(0,0)) != yourSymbol){
+
+                
+                //Top of row winning move  -- x=2
+                if(curCopy.checkSquare(new Pair<>(2,1)) == yourSymbol){
+                    if(curCopy.checkSquare(new Pair<>(2,2)) == yourSymbol){
+                        if(curCopy.isSquareOpen(new Pair<>(2,0))){
+                            return new Pair<>(2,0);
+                        }
+                    }
+                }
+                //Middle row winning move  -- x=2
+                if(curCopy.checkSquare(new Pair<>(2,0)) == yourSymbol){
+                    if(curCopy.checkSquare(new Pair<>(2,2)) == yourSymbol){
+                        if(curCopy.isSquareOpen(new Pair<>(2,1))){
+                            return new Pair<>(2,1);
+                        }
+                    }
+                }
+                //Bottom of row winning move  -- x=2
+                if(curCopy.checkSquare(new Pair<>(2,0)) == yourSymbol){
+                    if(curCopy.checkSquare(new Pair<>(2,1)) == yourSymbol){
+                        if(curCopy.isSquareOpen(new Pair<>(2,2))){
+                            return new Pair<>(2,2);
+                        }
+                    }
+                }
+
+                //Rule 2: If the opponent has a winning move, block it.
+                /* Copy Board, use checkSquare method to determine location (ex. Pair <0,0>), if the returned char is not the agent's then 
+                use is SquareOpen to see if the spot is available then call setSquare method for the proper blocking coordinate*/
+                
+                //Top of row blocking move -- x=0
                 if(curCopy.checkSquare(new Pair<>(0,1)) != yourSymbol){
-                    if(curCopy.checkSquare(new Pair<>(1,2)) != yourSymbol){
-                        if(curCopy.checkSquare(new Pair<>(2,2)) != yourSymbol){
-                            if(curCopy.isSquareOpen(new Pair<>(0,2))){
-                                return new Pair<>(0,2);
-                            }
+                    if(curCopy.checkSquare(new Pair<>(0,2)) != yourSymbol){
+                        if(curCopy.isSquareOpen(new Pair<>(0,0))){
+                            return new Pair<>(0,0);
                         }
-                        
                     }
                 }
-            }
-
-
-            //Top of row 2-way winning move -- (1,0)
-            else if(curCopy.checkSquare(new Pair<>(0,0)) != yourSymbol){
-                if(curCopy.checkSquare(new Pair<>(2,0)) != yourSymbol){
-                    if(curCopy.checkSquare(new Pair<>(1,1)) != yourSymbol){
-                        if(curCopy.checkSquare(new Pair<>(1,2)) != yourSymbol){
-                            if(curCopy.isSquareOpen(new Pair<>(1,0))){
-                                return new Pair<>(1,0);
-                            }
+                //Middle row blocking move  -- x=0
+                if(curCopy.checkSquare(new Pair<>(0,0)) != yourSymbol){
+                    if(curCopy.checkSquare(new Pair<>(0,2)) != yourSymbol){
+                        if(curCopy.isSquareOpen(new Pair<>(0,1))){
+                            return new Pair<>(0,1);
                         }
-                        
                     }
                 }
-            }
-
-            //Top of row 2-way winning move -- (1,1)
-            else if(curCopy.checkSquare(new Pair<>(0,1)) != yourSymbol){
-                if(curCopy.checkSquare(new Pair<>(2,1)) != yourSymbol){
-                    if(curCopy.checkSquare(new Pair<>(1,0)) != yourSymbol){
-                        if(curCopy.checkSquare(new Pair<>(1,2)) != yourSymbol){
-                            if(curCopy.isSquareOpen(new Pair<>(1,1))){
-                                return new Pair<>(1,1);
-                            }
-                        }
-                        
-                    }
-                }
-            }
-
-            //Top of row 2-way winning move -- (1,2)
-            else if(curCopy.checkSquare(new Pair<>(0,2)) != yourSymbol){
-                if(curCopy.checkSquare(new Pair<>(2,2)) != yourSymbol){
-                    if(curCopy.checkSquare(new Pair<>(1,0)) != yourSymbol){
-                        if(curCopy.checkSquare(new Pair<>(1,1)) != yourSymbol){
-                            if(curCopy.isSquareOpen(new Pair<>(1,2))){
-                                return new Pair<>(1,2);
-                            }
-                        }
-                        
-                    }
-                }
-            }
-
-
-            //Top of row 2-way winning move -- (2,0)
-            else if(curCopy.checkSquare(new Pair<>(0,0)) != yourSymbol){
-                if(curCopy.checkSquare(new Pair<>(1,0)) != yourSymbol){
-                    if(curCopy.checkSquare(new Pair<>(2,1)) != yourSymbol){
-                        if(curCopy.checkSquare(new Pair<>(2,2)) != yourSymbol){
-                            if(curCopy.isSquareOpen(new Pair<>(2,0))){
-                                return new Pair<>(2,0);
-                            }
-                        }
-                        
-                    }
-                }
-            }
-            //Top of row 2-way winning move -- (2,1)
-            else if(curCopy.checkSquare(new Pair<>(2,0)) != yourSymbol){
-                if(curCopy.checkSquare(new Pair<>(2,2)) != yourSymbol){
+                //Bottom of row blocking move  -- x=0
+                if(curCopy.checkSquare(new Pair<>(0,0)) != yourSymbol){
                     if(curCopy.checkSquare(new Pair<>(0,1)) != yourSymbol){
+                        if(curCopy.isSquareOpen(new Pair<>(0,2))){
+                            return new Pair<>(0,2);
+                        }
+                    }
+                }
+                
+                //Top of row blocking move -- x=1
+                if(curCopy.checkSquare(new Pair<>(1,1)) != yourSymbol){
+                    if(curCopy.checkSquare(new Pair<>(1,2)) != yourSymbol){
+                        if(curCopy.isSquareOpen(new Pair<>(1,0))){
+                            return new Pair<>(1,0);
+                        }
+                    }
+                }
+                //Middle row blocking move  -- x=1
+                if(curCopy.checkSquare(new Pair<>(1,0)) != yourSymbol){
+                    if(curCopy.checkSquare(new Pair<>(1,2)) != yourSymbol){
+                        if(curCopy.isSquareOpen(new Pair<>(1,1))){
+                            return new Pair<>(1,1);
+                        }
+                    }
+                }
+                //Bottom of row blocking move  -- x=1
+                if(curCopy.checkSquare(new Pair<>(1,0)) != yourSymbol){
+                    if(curCopy.checkSquare(new Pair<>(1,1)) != yourSymbol){
+                        if(curCopy.isSquareOpen(new Pair<>(1,1))){
+                            return new Pair<>(1,2);
+                        }
+                    }
+                }
+                
+                //Top of row blocking move -- x=2
+                if(curCopy.checkSquare(new Pair<>(2,1)) != yourSymbol){
+                    if(curCopy.checkSquare(new Pair<>(2,2)) != yourSymbol){
+                        if(curCopy.isSquareOpen(new Pair<>(2,0))){
+                            return new Pair<>(2,0);
+                        }
+                    }
+                }
+                //Middle row blocking move  -- x=2
+                if(curCopy.checkSquare(new Pair<>(2,0)) != yourSymbol){
+                    if(curCopy.checkSquare(new Pair<>(2,2)) != yourSymbol){
+                        if(curCopy.isSquareOpen(new Pair<>(2,1))){
+                            return new Pair<>(2,1);
+                        }
+                    }
+                }
+                //Bottom of row blocking move  -- x=2
+                if(curCopy.checkSquare(new Pair<>(2,0)) != yourSymbol){
+                    if(curCopy.checkSquare(new Pair<>(2,2)) != yourSymbol){
+                        if(curCopy.isSquareOpen(new Pair<>(2,2))){
+                            return new Pair<>(2,2);
+                        }
+                    }
+                }
+
+                //Rule 3: If I can create a fork (two winning ways) after this move, do it.
+                /* Copy Board, use checkSquare method to determine location (ex. Pair <0,0>), if the returned char is not the agent's then 
+                use is SquareOpen to see if the spot is available then call setSquare method for a method, if possible, with 2 way of winning*/
+                
+                //Top of row 2-way winning move -- (0,0)
+                if(curCopy.checkSquare(new Pair<>(0,1)) == yourSymbol){
+                    if(curCopy.checkSquare(new Pair<>(0,2)) == yourSymbol){
+                        if(curCopy.checkSquare(new Pair<>(1,0)) == yourSymbol){
+                            if(curCopy.checkSquare(new Pair<>(2,0)) == yourSymbol){
+                                if(curCopy.isSquareOpen(new Pair<>(0,0))){
+                                    return new Pair<>(0,0);
+                                }
+                            }
+                            
+                        }
+                    }
+                }
+
+                //Top of row 2-way winning move -- (0,1)
+                if(curCopy.checkSquare(new Pair<>(0,0)) == yourSymbol){
+                    if(curCopy.checkSquare(new Pair<>(0,2)) == yourSymbol){
+                        if(curCopy.checkSquare(new Pair<>(1,1)) == yourSymbol){
+                            if(curCopy.checkSquare(new Pair<>(2,1)) == yourSymbol){
+                                if(curCopy.isSquareOpen(new Pair<>(0,1))){
+                                    return new Pair<>(0,1);
+                                }
+                            }
+                            
+                        }
+                    }
+                }
+                
+                //Top of row 2-way winning move -- (0,2)
+                if(curCopy.checkSquare(new Pair<>(0,0)) == yourSymbol){
+                    if(curCopy.checkSquare(new Pair<>(0,1)) == yourSymbol){
+                        if(curCopy.checkSquare(new Pair<>(1,2)) == yourSymbol){
+                            if(curCopy.checkSquare(new Pair<>(2,2)) == yourSymbol){
+                                if(curCopy.isSquareOpen(new Pair<>(0,2))){
+                                    return new Pair<>(0,2);
+                                }
+                            }
+                            
+                        }
+                    }
+                }
+
+
+                //Top of row 2-way winning move -- (1,0)
+                if(curCopy.checkSquare(new Pair<>(0,0)) == yourSymbol){
+                    if(curCopy.checkSquare(new Pair<>(2,0)) == yourSymbol){
+                        if(curCopy.checkSquare(new Pair<>(1,1)) == yourSymbol){
+                            if(curCopy.checkSquare(new Pair<>(1,2)) == yourSymbol){
+                                if(curCopy.isSquareOpen(new Pair<>(1,0))){
+                                    return new Pair<>(1,0);
+                                }
+                            }
+                            
+                        }
+                    }
+                }
+
+                //Top of row 2-way winning move -- (1,1)
+                if(curCopy.checkSquare(new Pair<>(0,1)) == yourSymbol){
+                    if(curCopy.checkSquare(new Pair<>(2,1)) == yourSymbol){
+                        if(curCopy.checkSquare(new Pair<>(1,0)) == yourSymbol){
+                            if(curCopy.checkSquare(new Pair<>(1,2)) == yourSymbol){
+                                if(curCopy.isSquareOpen(new Pair<>(1,1))){
+                                    return new Pair<>(1,1);
+                                }
+                            }
+                            
+                        }
+                    }
+                }
+
+                //Top of row 2-way winning move -- (1,2)
+                if(curCopy.checkSquare(new Pair<>(0,2)) == yourSymbol){
+                    if(curCopy.checkSquare(new Pair<>(2,2)) == yourSymbol){
+                        if(curCopy.checkSquare(new Pair<>(1,0)) == yourSymbol){
+                            if(curCopy.checkSquare(new Pair<>(1,1)) == yourSymbol){
+                                if(curCopy.isSquareOpen(new Pair<>(1,2))){
+                                    return new Pair<>(1,2);
+                                }
+                            }
+                            
+                        }
+                    }
+                }
+
+
+                //Top of row 2-way winning move -- (2,0)
+                if(curCopy.checkSquare(new Pair<>(0,0)) == yourSymbol){
+                    if(curCopy.checkSquare(new Pair<>(1,0)) == yourSymbol){
+                        if(curCopy.checkSquare(new Pair<>(2,1)) == yourSymbol){
+                            if(curCopy.checkSquare(new Pair<>(2,2)) == yourSymbol){
+                                if(curCopy.isSquareOpen(new Pair<>(2,0))){
+                                    return new Pair<>(2,0);
+                                }
+                            }
+                            
+                        }
+                    }
+                }
+                //Top of row 2-way winning move -- (2,1)
+                if(curCopy.checkSquare(new Pair<>(2,0)) == yourSymbol){
+                    if(curCopy.checkSquare(new Pair<>(2,2)) == yourSymbol){
+                        if(curCopy.checkSquare(new Pair<>(0,1)) == yourSymbol){
+                            if(curCopy.checkSquare(new Pair<>(1,1)) == yourSymbol){
+                                if(curCopy.isSquareOpen(new Pair<>(2,1))){
+                                    return new Pair<>(2,1);
+                                }
+                            }
+                            
+                        }
+                    }
+                }
+
+                //Top of row 2-way winning move -- (2,2)
+                if(curCopy.checkSquare(new Pair<>(0,2)) == yourSymbol){
+                    if(curCopy.checkSquare(new Pair<>(1,2)) == yourSymbol){
+                        if(curCopy.checkSquare(new Pair<>(2,0)) == yourSymbol){
+                            if(curCopy.checkSquare(new Pair<>(2,1)) == yourSymbol){
+                                if(curCopy.isSquareOpen(new Pair<>(2,2))){
+                                    return new Pair<>(2,2);
+                                }
+                            }
+                            
+                        }
+                    }
+                }
+
+                //Rule 4: Do not let the opponent creating a fork after my move. (Opponent may block your winning move and create a fork.)
+                /* Copy Board, use checkSquare method to determine location (ex. Pair <0,0>), if the returned char is not the agent's then 
+                use is SquareOpen to see if the spot is available then call setSquare method for a coordinate that doesn't allow the opponent to fork*/
+
+                    //Top of row 2-way winning move -- (0,0)
+                    if(curCopy.checkSquare(new Pair<>(0,1)) != yourSymbol){
+                    if(curCopy.checkSquare(new Pair<>(0,2)) != yourSymbol){
+                        if(curCopy.checkSquare(new Pair<>(1,0)) != yourSymbol){
+                            if(curCopy.checkSquare(new Pair<>(2,0)) != yourSymbol){
+                                if(curCopy.isSquareOpen(new Pair<>(0,0))){
+                                    return new Pair<>(0,0);
+                                }
+                            }
+                            
+                        }
+                    }
+                }
+
+                //Top of row 2-way winning move -- (0,1)
+                if(curCopy.checkSquare(new Pair<>(0,0)) != yourSymbol){
+                    if(curCopy.checkSquare(new Pair<>(0,2)) != yourSymbol){
                         if(curCopy.checkSquare(new Pair<>(1,1)) != yourSymbol){
-                            if(curCopy.isSquareOpen(new Pair<>(2,1))){
-                                return new Pair<>(2,1);
+                            if(curCopy.checkSquare(new Pair<>(2,1)) != yourSymbol){
+                                if(curCopy.isSquareOpen(new Pair<>(0,1))){
+                                    return new Pair<>(0,1);
+                                }
                             }
+                            
                         }
-                        
                     }
                 }
-            }
+                
+                //Top of row 2-way winning move -- (0,2)
+                if(curCopy.checkSquare(new Pair<>(0,0)) != yourSymbol){
+                    if(curCopy.checkSquare(new Pair<>(0,1)) != yourSymbol){
+                        if(curCopy.checkSquare(new Pair<>(1,2)) != yourSymbol){
+                            if(curCopy.checkSquare(new Pair<>(2,2)) != yourSymbol){
+                                if(curCopy.isSquareOpen(new Pair<>(0,2))){
+                                    return new Pair<>(0,2);
+                                }
+                            }
+                            
+                        }
+                    }
+                }
 
-            //Top of row 2-way winning move -- (2,2)
-            else if(curCopy.checkSquare(new Pair<>(0,2)) != yourSymbol){
-                if(curCopy.checkSquare(new Pair<>(1,2)) != yourSymbol){
+
+                //Top of row 2-way winning move -- (1,0)
+                if(curCopy.checkSquare(new Pair<>(0,0)) != yourSymbol){
                     if(curCopy.checkSquare(new Pair<>(2,0)) != yourSymbol){
-                        if(curCopy.checkSquare(new Pair<>(2,1)) != yourSymbol){
-                            if(curCopy.isSquareOpen(new Pair<>(2,2))){
-                                return new Pair<>(2,2);
+                        if(curCopy.checkSquare(new Pair<>(1,1)) != yourSymbol){
+                            if(curCopy.checkSquare(new Pair<>(1,2)) != yourSymbol){
+                                if(curCopy.isSquareOpen(new Pair<>(1,0))){
+                                    return new Pair<>(1,0);
+                                }
                             }
+                            
                         }
-                        
                     }
                 }
+
+                //Top of row 2-way winning move -- (1,1)
+                if(curCopy.checkSquare(new Pair<>(0,1)) != yourSymbol){
+                    if(curCopy.checkSquare(new Pair<>(2,1)) != yourSymbol){
+                        if(curCopy.checkSquare(new Pair<>(1,0)) != yourSymbol){
+                            if(curCopy.checkSquare(new Pair<>(1,2)) != yourSymbol){
+                                if(curCopy.isSquareOpen(new Pair<>(1,1))){
+                                    return new Pair<>(1,1);
+                                }
+                            }
+                            
+                        }
+                    }
+                }
+
+                //Top of row 2-way winning move -- (1,2)
+                if(curCopy.checkSquare(new Pair<>(0,2)) != yourSymbol){
+                    if(curCopy.checkSquare(new Pair<>(2,2)) != yourSymbol){
+                        if(curCopy.checkSquare(new Pair<>(1,0)) != yourSymbol){
+                            if(curCopy.checkSquare(new Pair<>(1,1)) != yourSymbol){
+                                if(curCopy.isSquareOpen(new Pair<>(1,2))){
+                                    return new Pair<>(1,2);
+                                }
+                            }
+                            
+                        }
+                    }
+                }
+
+
+                //Top of row 2-way winning move -- (2,0)
+                if(curCopy.checkSquare(new Pair<>(0,0)) != yourSymbol){
+                    if(curCopy.checkSquare(new Pair<>(1,0)) != yourSymbol){
+                        if(curCopy.checkSquare(new Pair<>(2,1)) != yourSymbol){
+                            if(curCopy.checkSquare(new Pair<>(2,2)) != yourSymbol){
+                                if(curCopy.isSquareOpen(new Pair<>(2,0))){
+                                    return new Pair<>(2,0);
+                                }
+                            }
+                            
+                        }
+                    }
+                }
+                //Top of row 2-way winning move -- (2,1)
+                if(curCopy.checkSquare(new Pair<>(2,0)) != yourSymbol){
+                    if(curCopy.checkSquare(new Pair<>(2,2)) != yourSymbol){
+                        if(curCopy.checkSquare(new Pair<>(0,1)) != yourSymbol){
+                            if(curCopy.checkSquare(new Pair<>(1,1)) != yourSymbol){
+                                if(curCopy.isSquareOpen(new Pair<>(2,1))){
+                                    return new Pair<>(2,1);
+                                }
+                            }
+                            
+                        }
+                    }
+                }
+
+                //Top of row 2-way winning move -- (2,2)
+                if(curCopy.checkSquare(new Pair<>(0,2)) != yourSymbol){
+                    if(curCopy.checkSquare(new Pair<>(1,2)) != yourSymbol){
+                        if(curCopy.checkSquare(new Pair<>(2,0)) != yourSymbol){
+                            if(curCopy.checkSquare(new Pair<>(2,1)) != yourSymbol){
+                                if(curCopy.isSquareOpen(new Pair<>(2,2))){
+                                    return new Pair<>(2,2);
+                                }
+                            }
+                            
+                        }
+                    }
+                }
+
+
+                //Rule 5: Place in the position such as I may win in the most number of possible ways.
+                /* Copy Board, use checkSquare method to determine location (ex. Pair <0,0>), if the returned char is not the agent's then 
+                use is SquareOpen to see if the spot is available then call setSquare method for a coordinate that allows you the most likely win
+                (probabaly place your symbol in the center of board)*/
+
+                //Top of row 2-way winning move -- (2,2)
+                /* if(curCopy.isSquareOpen(new Pair<>(1,1))){
+                        return new Pair<>(1,1);
+                } */
             }
-
-
-            //Rule 5: Place in the position such as I may win in the most number of possible ways.
-            /* Copy Board, use checkSquare method to determine location (ex. Pair <0,0>), if the returned char is not the agent's then 
-            use is SquareOpen to see if the spot is available then call setSquare method for a coordinate that allows you the most likely win
-            (probabaly place your symbol in the center of board)*/
-
-            //Top of row 2-way winning move -- (2,2)
-            if(curCopy.isSquareOpen(new Pair<>(1,1))){
-                    return new Pair<>(1,1);
-            }
-
-            else{
-                throw new IllegalArgumentException("Board with no moves given to player:\n" + curBoard.displayString());
-            }
+        throw new IllegalArgumentException("Board with no moves given to player:\n" + curBoard.displayString());
         }
         
 }
