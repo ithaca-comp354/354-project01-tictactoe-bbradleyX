@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 
 import edu.ithaca.dragon.games.tictactoe.player.BrainDeadPlayer;
 import edu.ithaca.dragon.games.tictactoe.player.RuleBasedAgentBradley;
-import edu.ithaca.dragon.games.tictactoe.player.RuleBasedPlayer;
 
 public class TicTacToeTest {
 
