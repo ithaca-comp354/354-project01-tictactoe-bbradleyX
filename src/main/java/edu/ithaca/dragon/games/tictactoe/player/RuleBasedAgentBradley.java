@@ -452,5 +452,5 @@ public class RuleBasedAgentBradley implements TicTacToePlayer {
             
             throw new IllegalArgumentException("Board with no moves given to player:\n" + curBoard.displayString());
 
- }
-}
+    }
+    }
