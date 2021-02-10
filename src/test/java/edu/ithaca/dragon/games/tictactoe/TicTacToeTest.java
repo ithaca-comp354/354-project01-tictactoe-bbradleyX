@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
 import edu.ithaca.dragon.games.tictactoe.player.BrainDeadPlayer;
+import edu.ithaca.dragon.games.tictactoe.player.RuleBasedAgentBradley;
 import edu.ithaca.dragon.games.tictactoe.player.RuleBasedPlayer;
 
 public class TicTacToeTest {
@@ -21,7 +22,7 @@ public class TicTacToeTest {
 
     @Test
     public void ruleBasedGameTest(){
-        TicTacToeGame game = new TicTacToeGame(new RuleBasedPlayer(), new RuleBasedPlayer());
+        TicTacToeGame game = new TicTacToeGame(new RuleBasedAgentBradley(), new RuleBasedAgentBradley());
         while (game.calcGameStatus() == GameStatus.PLAYING){
             game.takeTurn();
         }
@@ -31,7 +32,7 @@ public class TicTacToeTest {
 
     @Test
     public void ruleanddeadGameTest(){
-        TicTacToeGame game = new TicTacToeGame(new RuleBasedPlayer(), new BrainDeadPlayer());
+        TicTacToeGame game = new TicTacToeGame(new RuleBasedAgentBradley(), new BrainDeadPlayer());
         while (game.calcGameStatus() == GameStatus.PLAYING){
             game.takeTurn();
         }

@@ -222,6 +222,7 @@ public class RuleBasedPlayer implements TicTacToePlayer {
                 }
             }
 
+
             //Top of row 2-way winning move -- (1,0)
             if(curCopy.checksquare(new Pair<>(0,0)) == yourSymbol){
                 if(curCopy.checksquare(new Pair<>(2,0)) == yourSymbol){
@@ -251,6 +252,48 @@ public class RuleBasedPlayer implements TicTacToePlayer {
             }
 
             //Top of row 2-way winning move -- (1,2)
+            if(curCopy.checksquare(new Pair<>(0,2)) == yourSymbol){
+                if(curCopy.checksquare(new Pair<>(2,2)) == yourSymbol){
+                    if(curCopy.checksquare(new Pair<>(1,0)) == yourSymbol){
+                        if(curCopy.checksquare(new Pair<>(1,1)) == yourSymbol){
+                            if(curCopy.isSquareOpen(new Pair<>(1,2))){
+                                return new Pair<>(1,2);
+                            }
+                        }
+                        
+                    }
+                }
+            }
+
+
+            //Top of row 2-way winning move -- (2,0)
+            if(curCopy.checksquare(new Pair<>(1,0)) == yourSymbol){
+                if(curCopy.checksquare(new Pair<>(1,1)) == yourSymbol){
+                    if(curCopy.checksquare(new Pair<>(0,0)) == yourSymbol){
+                        if(curCopy.checksquare(new Pair<>(2,1)) == yourSymbol){
+                            if(curCopy.isSquareOpen(new Pair<>(1,2))){
+                                return new Pair<>(1,2);
+                            }
+                        }
+                        
+                    }
+                }
+            }
+            //Top of row 2-way winning move -- (2,1)
+            if(curCopy.checksquare(new Pair<>(0,1)) == yourSymbol){
+                if(curCopy.checksquare(new Pair<>(2,1)) == yourSymbol){
+                    if(curCopy.checksquare(new Pair<>(1,0)) == yourSymbol){
+                        if(curCopy.checksquare(new Pair<>(1,2)) == yourSymbol){
+                            if(curCopy.isSquareOpen(new Pair<>(1,1))){
+                                return new Pair<>(1,1);
+                            }
+                        }
+                        
+                    }
+                }
+            }
+
+            //Top of row 2-way winning move -- (2,2)
             if(curCopy.checksquare(new Pair<>(1,0)) == yourSymbol){
                 if(curCopy.checksquare(new Pair<>(1,1)) == yourSymbol){
                     if(curCopy.checksquare(new Pair<>(0,0)) == yourSymbol){
