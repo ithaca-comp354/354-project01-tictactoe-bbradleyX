@@ -22,7 +22,7 @@ public interface TicTacToeBoard {
     public String displayString();
 
     //@returns the char found at the given square
-    public char checksquare(Pair<Integer, Integer> square);
+    public char checkSquare(Pair<Integer, Integer> square);
 
     //@returns a string of 9 characters representing each board space in row-major order
     public String buildSquaresString();
